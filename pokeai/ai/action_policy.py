@@ -42,3 +42,9 @@ class ActionPolicy:
         :return:
         """
         pass
+
+    def send_raw_chunk(self, chunk_type, chunk):
+        """
+        showdownからの情報を転送する
+        """
+        pass

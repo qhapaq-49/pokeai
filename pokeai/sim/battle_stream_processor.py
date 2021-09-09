@@ -118,6 +118,8 @@ class BattleStreamProcessor:
         :param data:
         :return: "move 2"や"switch 1"のような行動
         """
+        # policyに情報を送る
+        self.policy.send_raw_chunk(chunk_type, data)
         choice = None
         for line in data.splitlines():
             # |request|xxx

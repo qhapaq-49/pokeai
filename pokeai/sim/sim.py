@@ -150,3 +150,13 @@ class Sim:
             f'>player p1 {json.dumps(self._makePartySpec("p1", self.parties[0]))}',
             f'>player p2 {json.dumps(self._makePartySpec("p2", self.parties[1]))}',
         ])
+
+    def quit(self):
+        if self.proc is not None:
+            self.proc.stdin.close()
+            self.proc.terminate()
+            self.proc = None
+            
+    # デストラクタで通信の切断を行う。
+    def __del__(self):
+        self.quit()
