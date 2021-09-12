@@ -62,3 +62,17 @@ class RandomPolicy(ActionPolicy):
             return random.choice(possible_actions).simulator_key
         else:
             return possible_actions[0].simulator_key
+
+    def ask_party(self, info_str):
+        """
+        どのポケモンを選ぶかを尋ねる
+
+        :param info_str : json形式テキストで相手パーティーに関する情報を送る 
+        :return: 選択するポケモン idxは1〜6であることに注意。例 "choice 1 2 3"
+        
+        """
+        dat = json.loads(info_str)
+        to_select = int(dat["num"])
+        outs = random.choices([1, 2, 3, 4, 5, 6], k=to_select)
+        return f"choice {[' '.join(outs)]}"
+

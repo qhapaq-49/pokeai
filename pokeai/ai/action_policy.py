@@ -48,3 +48,14 @@ class ActionPolicy:
         showdownからの情報を転送する
         """
         pass
+
+    def ask_party(self, info_str:str) -> str:
+        """
+        どのポケモンを選ぶかを尋ねる
+
+        :param info_str : json形式テキストで相手パーティーに関する情報を送る。
+        相手パーティーに関する情報は"opponent"で、選ぶポケモンの数については"to_select"で与えられる
+        :return: 選択するポケモン idxは1〜6であることに注意。例 "choice 1 2 3"
+        
+        """
+        raise NotImplementedError
